@@ -3,9 +3,11 @@ class Api::SessionsController < Devise::SessionsController
 
   private
 
+  def resource_name
+    :user
+  end
+
   def respond_with(resource, _opts = {})
-    # render json: { message: 'You are logged in.' }, status: :ok
-    # debugger
     if resource.id.nil?
       render json: { errors: [{ message: 'Email or password is incorrect' }]}, status: :unauthorized
     else

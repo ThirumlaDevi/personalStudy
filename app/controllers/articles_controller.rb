@@ -15,7 +15,7 @@ class ArticlesController < ApplicationController
       respond_to do |format|
         format.html {render 'show'}
         format.json {render json: @article.to_json}
-    #   end
+      end
     # else
     #   render json: {message: "you do not have access to perform this action"}, status: :unauthorized
     # end
@@ -26,16 +26,19 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    # if current_user.admin? 
+    # if current_user.admin?
       @article = Article.new(article_params)
       if @article.save
-        redirect_to @article
+        respond_to do |format|
+          format.html {redirect_to @article}
+          format.json {render json: @articles.to_json, status: :created}
+        end
       else
-        render :new, status: :unprocessable_entity
+        respond_to do |format|
+          format.html {render :new, status: :unprocessable_entity}
+          format.json {render json: {message: "you do not have access to perform this action"}, status: :unauthorized}
+        end
       end
-    # else 
-    #   render json: {message: "you do not have access to perform this action"}, status: :unauthorized
-    # end
   end
 
   def edit
@@ -46,13 +49,16 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
     # unless current_user.guest?
       if @article.update(article_params)
-        redirect_to @article
+        respond_to do |format|
+          format.html {redirect_to @article}
+          format.json {render json: @articles.to_json, status: :ok}
+        end
       else
-        render :edit, status: :unprocessable_entity
+        respond_to do |format|
+          format.html {ender :edit, status: :unprocessable_entity}
+          format.json {render json: {message: "you do not have access to perform this action"}, status: :unauthorized}
+        end
       end
-    # else
-    #   render json: {message: "you do not have access to perform this action"}, status: :unauthorized
-    # end
   end
 
   def destroy
