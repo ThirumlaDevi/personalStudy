@@ -45,7 +45,7 @@ This application is accessible as both a web app and via api
 ```
 curl -X POST http://localhost:3000/api/users/sign_in -i -H "Accept: application/json" \
    -H 'Content-Type: application/json' \
-   -d '{"user" : {"email":"user2@gmail.com","password":"123456"}}'
+   -d '{"user" : {"email":"user3@gmail.com","password":"123456"}}'
 ```
 
 #### SIGN OUT
@@ -58,7 +58,7 @@ curl -X DELETE http://localhost:3000/api/users/sign_out -H 'Content-Type: applic
 ```
 curl -X POST http://localhost:3000/api/users/sign_up -i -H "Accept: application/json" \
    -H 'Content-Type: application/json' \
-   -d '{"user" : {"email":"user2@gmail.com","password":"123456"}}'
+   -d '{"user" : {"email":"user3@gmail.com","password":"123456"}}'
 ```
 
 #### GET ARTICLES
@@ -74,12 +74,6 @@ curl http://localhost:3000/articles/32 -H "Accept: application/json" \
   -H 'Content-Type: application/json' \
   -H "Authorization: Bearer <TOKEN>"
 ```
-
-curl http://localhost:3000/articles/3 -H "Accept: application/json" \
-  -H 'Content-Type: application/json' \
-  -H "Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI4Iiwic2NwIjoidXNlciIsImF1ZCI6bnVsbCwiaWF0IjoxNjkwNjQyMDgzLCJleHAiOjE2OTA2NDU2ODMsImp0aSI6IjViZWM4MTk2LTYzNzEtNGYwZi05NmZkLTNjNmMzZmVkNDdiZCJ9.SESSglKTsGx-gq7fTkUkoMpt74dRu3ZvKzYp4mZQsKQ"
-
-
 
 ### My notes
 - Useful doc on devise authentication
