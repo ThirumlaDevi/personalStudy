@@ -47,7 +47,7 @@ production:
   database: blog_production_ivd6
   username: thirumladevisivakumar
   url: <%= ENV['DATABASE_URL'] %>
-  password: <%= ENV['MYSITE_DATABASE_PASSWORD'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
 
 development:
   adapter: postgresql
