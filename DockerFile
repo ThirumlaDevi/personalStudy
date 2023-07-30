@@ -1,0 +1,30 @@
+FROM ruby:3.2.2
+
+# RUN curl https://deb.nodesource.com/setup_10.x | bash
+# RUN curl https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
+# RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
+
+# RUN apt-get update && apt-get install -y --no-install-recommends apt-utils && apt-get install -y nodejs yarn
+
+# Setting up the environment
+# ARG RACK_ENV
+ARG RAILS_ENV
+ARG DATABASE_URL
+ARG DATABASE_PASSWORD
+ENV RAILS_ENV=$RAILS_ENV
+# ENV RACK_ENV=$RACK_ENV
+ENV DATABASE_URL=$DATABASE_URL
+ENV DATABASE_PASSWORD=$DATABASE_PASSWORD
+
+RUN mkdir /blog 
+WORKDIR /blog 
+
+COPY . /blog
+RUN bundle install
+
+# docker build --build-arg RAILS_ENV=production DATABASE_URL= DATABASE_PASSWORD=
+# postgresIP=$(ifconfig | grep "inet " | grep -Fv 127.0.0.1 | awk '{print $2}' )
+# echo $postgresIP
+# postgresPort=5432
+# user=thirumladevisivakumar
+
