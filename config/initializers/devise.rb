@@ -277,7 +277,7 @@ Devise.setup do |config|
     # config.omniauth_path_prefix = '/my_engine/users/auth'
 
     config.jwt do |jwt|
-      jwt.secret = Rails.application.credentials.devise_jwt_secret_key!
+      jwt.secret = Rails.application.credentials.devise[:jwt_secret_key]
       jwt.expiration_time = 1.hours.to_i
       jwt.request_formats = { user: [:json] }
     end
