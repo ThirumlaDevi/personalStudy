@@ -125,3 +125,7 @@ Getting started Section 7.5 (delete not done)
 - Rpec https://www.lambdatest.com/learning-hub/rspec-ruby
 https://stackoverflow.com/questions/7135377/problem-with-rspec-test-undefined-method-post
 https://medium.com/@qualitytechgirl/ruby-on-rails-testing-with-rspec-requests-92b09c8057a4
+
+
+- Rails Docker + postgres file references
+https://github.com/dreikanter/feeder/pull/263
